@@ -5,6 +5,7 @@ class Square extends Component{
   handleClick = () => {
     // alert('clicked')
     this.props.userClick(this.props.index, this.props.turn)
+    this.props.checkWinner(this.props.index)
   }
 
   render(){
