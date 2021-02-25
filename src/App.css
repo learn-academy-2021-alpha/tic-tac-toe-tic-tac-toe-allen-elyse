@@ -1,9 +1,8 @@
 .square{
   height: 100px;
   width: 100px;
-  border: 2px solid black;
+  border: 2px solid #027C68;
   font-size: 70px;
-  text-align: center;
 }
 
 .gameboard {
@@ -14,6 +13,28 @@
   margin: 0 auto;
 }
 
+.background {
+  background-color: rgb(255,255,255, .6);
+}
+
+.coloring {
+    color: #027C68;
+    text-align: center;
+}
+
 h1 {
-  text-align: center;
+  padding: 40px;
+  border: 2px solid #027C68;
+}
+
+footer {
+  padding: 20px;
+  color: #045D4E;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1487552292919-eccbbd948cba?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

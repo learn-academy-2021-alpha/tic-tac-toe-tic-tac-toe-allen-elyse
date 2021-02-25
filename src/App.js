@@ -17,7 +17,8 @@ class App extends Component{
         [2, 5, 8],
         [0, 4, 8],
         [2, 4, 6]
-      ]
+      ],
+      gameOver: false
     }
   }
 
@@ -63,8 +64,8 @@ class App extends Component{
 //   }
 // }
 
-checkWinner = () => {
-  const { squares } = this.state
+  checkWinner = () => {
+    const { squares } = this.state
   // for of loop to iterate through array of winning conditions
   // we will check if the squares based on the winning condition are the same
 
@@ -72,27 +73,36 @@ checkWinner = () => {
   // map will return an array of equal length to this.state.winner
   // the values within the array will be true or false
   // we will check if there is a true within the array
-  return this.state.winner.map(array => {
+    return this.state.winner.map(array => {
     // first iteration, array = [0, 1, 2]
     // array[0] -> first element of the winning condition -> 0
     // array[1] -> second element of the winning condition -> 1
     // array[2] -> third element of the winning condition -> 2
-    if (squares[array[0]] === squares[array[1]] && squares[array[1]] === squares[array[2]] && squares[array[0]]) {
-      return true
-    } else {
-      return false
-    }
+      if (squares[array[0]] === squares[array[1]] && squares[array[1]] === squares[array[2]] && squares[array[0]]) {
+        return array.filter(value => {
+          this.setState({ gameOver: true })
+        })
+        //return true
+      } else {
+        return false
+      }
     // alert(squares)
     // console.log(squares)
   })
+
+  //add filter to funtion - returning only true or false and changing our game over state to true if true value.
+  //change state of gameOver from false to true when checkWinner comes back with ANY true value using filter.
+  //
+  //once winner is found - prompt onclick to use stop method to no longer allow clicking.
+
 }
 
   render(){
     console.log('checkWinner:',this.checkWinner(this.state.index))
     return(
       <>
-        <h1>Tic Tac Toe</h1>
-        <div className="gameboard">
+        <h1 className="background  coloring">Tic Tac Toe</h1>
+        <div className="gameboard coloring">
         { this.state.squares.map((value, index) => {
             return (
               <Square
@@ -106,6 +116,7 @@ checkWinner = () => {
             )
         })}
         </div>
+        <footer className="coloring">~Brought to you by Allen and Elyse~</footer>
       </>
     )
   }
