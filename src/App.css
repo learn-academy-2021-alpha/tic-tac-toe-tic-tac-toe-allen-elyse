@@ -2,4 +2,18 @@
   height: 100px;
   width: 100px;
   border: 2px solid black;
+  font-size: 70px;
+  text-align: center;
+}
+
+.gameboard {
+  display: flex;
+  width: 320px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
 }
