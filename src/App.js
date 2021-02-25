@@ -8,7 +8,16 @@ class App extends Component{
     this.state = {
       squares: ["", "", "", "", "", "", "", "", ""],
       turn: "X",
-      winner: [""]
+      winner: [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+      ]
     }
   }
 
@@ -56,9 +65,26 @@ class App extends Component{
 
 checkWinner = () => {
   const { squares } = this.state
-  if(squares[0] === squares[1] && squares[2]){
-    return `${squares[0]} is the winner!`
-  }
+  // for of loop to iterate through array of winning conditions
+  // we will check if the squares based on the winning condition are the same
+
+  // map to run through each winning condition
+  // map will return an array of equal length to this.state.winner
+  // the values within the array will be true or false
+  // we will check if there is a true within the array
+  return this.state.winner.map(array => {
+    // first iteration, array = [0, 1, 2]
+    // array[0] -> first element of the winning condition -> 0
+    // array[1] -> second element of the winning condition -> 1
+    // array[2] -> third element of the winning condition -> 2
+    if (squares[array[0]] === squares[array[1]] && squares[array[1]] === squares[array[2]] && squares[array[0]]) {
+      return true
+    } else {
+      return false
+    }
+    // alert(squares)
+    // console.log(squares)
+  })
 }
 
   render(){
