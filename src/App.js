@@ -85,8 +85,9 @@ class App extends Component{
         // })
         winningSymbol = squares[array[0]]
         return true
-      } else if (array === false) {
-        alert('Everyone is a winner')
+      // } else if (array === false) {
+      //   tieSymbol = squares
+        // alert('Everyone is a winner')
       } else {
         return false
       }
@@ -99,14 +100,17 @@ class App extends Component{
     // }
   })
   // add forEach??
-  
+
   console.log("winnerResult:", winnerResult)
   if (winnerResult.includes(true)) {
     alert(`${ winningSymbol } is the winner!`)
+    return winnerResult[0]
+  } else if(squares === 8 && false){
+    alert("Everyone is a winner!")
   }
 
-  return winnerResult[0]
-  
+
+
   // this.setState({ gameOver: winnerResult })
 
   //add filter to funtion - returning only true or false and changing our game over state to true if true value.
@@ -142,6 +146,7 @@ class App extends Component{
             )
         })}
         </div>
+        <button className="coloring" onClick= { window.location.reload }>Restart Game</button>
         <footer className="coloring">~Brought to you by Allen and Elyse~</footer>
       </>
     )
