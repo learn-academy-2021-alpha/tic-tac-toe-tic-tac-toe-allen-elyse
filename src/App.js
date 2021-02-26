@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Square from './components/Square'
+import Turn from './components/Turn'
 import './App.css'
 
 class App extends Component{
@@ -7,7 +8,8 @@ class App extends Component{
     super(props)
     this.state = {
       squares: ["", "", "", "", "", "", "", "", ""],
-      turn: "X",
+      turn: undefined,
+      //turn: "X",
       winner: [
         [0, 1, 2],
         [3, 4, 5],
@@ -146,12 +148,24 @@ class App extends Component{
     window.location.reload()
   }
 
+  chooseTurn = (symbol) => {
+    if(symbol === "X"){
+      this.setState({ turn: "X" })
+    }else if(symbol === "O")
+      this.setState({ turn: "O" })
+  }
+
   render(){
     console.log('checkWinner:',this.checkWinner(this.state.index))
     console.log('checkTie:', this.checkTie())
     return(
       <>
         <h1 className="background  coloring">Tic Tac Toe</h1>
+        <div className="coloring">
+          <Turn
+              chooseTurn={ this.chooseTurn}
+              turn= { this.state.turn }/>
+        </div>
         <div className="gameboard coloring">
         { this.state.squares.map((value, index) => {
             return (
