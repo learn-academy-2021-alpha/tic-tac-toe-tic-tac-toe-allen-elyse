@@ -193,3 +193,7 @@ class App extends Component{
   }
 }
 export default App
+
+
+//to make landing page -- add a && conditional rendering over div that contains the game grid to appear only when turn has value "X" or "O"
+//style button as a box instead of button for astetic purposes
