@@ -20,6 +20,13 @@
 .coloring {
     color: #027C68;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.padding {
+  padding: 5px;
 }
 
 h1 {

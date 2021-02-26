@@ -105,11 +105,9 @@ class App extends Component{
   if (winnerResult.includes(true)) {
     alert(`${ winningSymbol } is the winner!`)
     return winnerResult[0]
-  } else if(squares === 8 && false){
-    alert("Everyone is a winner!")
+  // } else if(squares === 8 && false){
+  //   alert("Everyone is a winner!")
   }
-
-
 
   // this.setState({ gameOver: winnerResult })
 
@@ -120,14 +118,37 @@ class App extends Component{
 
 }
 
+  // create a function that checks if there is a tie
+  checkTie = () => {
+    const { squares } = this.state
+
+    // Check if there is a value inside each square element
+    // Filter will check which elements are empty
+    // Then we will check that the array length is 9, which means there are no empty elements
+    // Therefore, we have a tie
+    const arrayCheck = squares.filter(value => {
+      return value !== ''
+    })
+
+    // return arrayCheck.length
+    if (arrayCheck.length >= 9) {
+      alert('Everyone is a winner!')
+    }
+  }
+
   // announceWinner = (winnerResult) => {
   //   if (winnerResult === true) {
   //     alert(`${this.squares} has won!`)
   //   }
   // }
 
+  refreshPage = () => {
+    window.location.reload()
+  }
+
   render(){
     console.log('checkWinner:',this.checkWinner(this.state.index))
+    console.log('checkTie:', this.checkTie())
     return(
       <>
         <h1 className="background  coloring">Tic Tac Toe</h1>
@@ -141,12 +162,17 @@ class App extends Component{
                 userClick={ this.userClick }
                 turn = { this.state.turn }
                 checkWinner = { this.checkWinner }
-
+                checkTie = {this.checkTie }
               />
             )
         })}
         </div>
-        <button className="coloring" onClick= { window.location.reload }>Restart Game</button>
+        <div className="coloring">
+          <p>It is { this.state.turn }'s turn</p>
+        </div>
+        <div className="coloring padding">
+          <button className="coloring" onClick= { this.refreshPage }>Restart Game</button>
+        </div>
         <footer className="coloring">~Brought to you by Allen and Elyse~</footer>
       </>
     )

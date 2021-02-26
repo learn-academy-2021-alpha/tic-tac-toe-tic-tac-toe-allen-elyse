@@ -26,10 +26,10 @@ This project will challenge your knowledge of React but should also be an exerci
 (done)
 - As a user, I should not be able to continue playing the game after the game has been won. (done)
 - As a user, when someone has won the game (3 squares in a row: horizontally, vertically, or diagonally) I should see a notice telling me who won. (done)
+- As a user, if there are no more squares available, I should see a notice telling me that the game has ended. (done)
+- As a user, I should see a restart button that when clicked will clear the gameboard. (doneß)
 
-- As a user, if there are no more squares available, I should see a notice telling me that the game has ended.
-- As a user, I should see a restart button that when clicked will clear the gameboard.
 
 ### Stretch Goals:
-- As a user, I can see a notification that informs me whether it is currently player one's or player two's turn.
+- As a user, I can see a notification that informs me whether it is currently player one's or player two's turn. (done)
 - As a user, I can choose my marker (X, O, a color, an emoji, etc...).
